@@ -52,6 +52,7 @@ jQuery.fn.init.prototype = jQuery.fn = jQuery.prototype.
 new jQuery.fn.init() 相当于 new jQuery() ;                                                                                     
 jQuery() 返回的是 new jQuery.fn.init()，而 var obj = new jQuery()，所以这 2 者是相当的，所以我们可以无 new 实例化 jQuery 对象。
 通过上面的代码，我们看出来为什么我们不需要实例化就可以使用jQuery的方法。
+![image](https://github.com/zhanghuiqi205/Source-code-analysis/blob/master/image/002.jpg)
 ## 3.jQuery.fn.extend 与 jQuery.extend
 
 
