@@ -23,9 +23,9 @@ jQuery 具体的实现，都被包含在了一个立即执行函数构造的闭�
     var                                                                                                      
     // ...
     jQuery = function(selector, context) {
-        // The jQuery object is actually just the init constructor 'enhanced'                                         
+        // The jQuery object is actually just the init constructor 'enhanced'
         // 看这里，实例化方法 jQuery() 实际上是调用了其拓展的原型方法 jQuery.fn.init
-##         return new jQuery.fn.init(selector, context, rootjQuery);
+###         return new jQuery.fn.init(selector, context, rootjQuery);
     },
  
     // jQuery.prototype 即是 jQuery 的原型，挂载在上面的方法，即可让所有生成的 jQuery 对象使用
@@ -41,7 +41,7 @@ jQuery 具体的实现，都被包含在了一个立即执行函数构造的闭�
     // 且实例还要能正确访问 jQuery 类原型上的属性与方法
     // jQuery 的方式是通过原型传递解决问题，把 jQuery 的原型传递给jQuery.prototype.init.prototype
     // 所以通过这个方法生成的实例 this 所指向的仍然是 jQuery.fn，所以能正确访问 jQuery 类原型上的属性与方法
-##    jQuery.fn.init.prototype = jQuery.fn;
+###         jQuery.fn.init.prototype = jQuery.fn;
 ## })(window);
 我们看上面的代码，看到我着重标注的地方，就是关键的地方，这就是为什么我们不需要实例化就可以使用JQuery的方法的原因。我们来进行分析一下：
  ##### 1.为什么我们可以直接使用$('')的方法，是因为其内部调用的是 return new jQuery.fn.init(selector, context, rootjQuery) 这一句话，也就是构造实例是交给了 jQuery.fn.init() 方法去完成。
@@ -52,6 +52,7 @@ new jQuery.fn.init() 相当于 new jQuery() ;
 jQuery() 返回的是 new jQuery.fn.init()，而 var obj = new jQuery()，所以这 2 者是相当的，所以我们可以无 new 实例化 jQuery 对象。
 通过上面的代码，我们看出来为什么我们不需要实例化就可以使用jQuery的方法。
 ## 3.jQuery.fn.extend 与 jQuery.extend
+
 
 
 
