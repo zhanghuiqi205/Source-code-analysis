@@ -160,7 +160,6 @@ jQuery.fn = jQuery.prototype = {
         // 构建一个新的jQuery对象，无参的 this.constructor()，只是返回引用this
         // jQuery.merge 把 elems 节点合并到新的 jQuery 对象
         // this.constructor 就是 jQuery 的构造函数 jQuery.fn.init，所以 this.constructor() 返回一个 jQuery 对象
-        // 由于 jQuery.merge 函数返回的对象是第二个函数附加到第一个上面，所以 ret 也是一个 jQuery 对象，这里可以解释为什么 pushStack 出入的 DOM 对象也可以用 CSS 方法进行操作
         var ret = jQuery.merge(this.constructor(), elems);
  
         // 给返回的新 jQuery 对象添加属性 prevObject
@@ -197,16 +196,6 @@ jQuery.fn = jQuery.prototype = {
 2）对于变量冲突的处理：jQuery一开始保存全局变量的 window.jQuery 以及 windw.$.当需要处理冲突的时候，调用静态方法 noConflict()，让出变量的控制权
 下面使用网上的一张图片说明一下：
 
+![image](https://github.com/zhanghuiqi205/Source-code-analysis/blob/master/image/003.jpg)
 
-
-
-
-
-
-
-
-
-
-
-
-
+## 这一篇只是jQuery的部分优秀的观点提出来,对后续我们开始对jQuery的源码进行认真仔细的分析
