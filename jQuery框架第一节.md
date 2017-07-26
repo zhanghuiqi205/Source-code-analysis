@@ -2,9 +2,9 @@
 那么接下来，我们进入源码的内部：我们分析的是jQuery 2.0.3的版本.
 源码的开头是：
 ## (function( window, undefined ) {  //之所以将window作为参数,一是可以提升参数查找速度，二是方便压缩.
- //undefined这个参数的传递，是为了防止外面的undefined被修改。
-// Can't do this because several apps including ASP.NET trace
-// the stack via arguments.caller.callee and Firefox dies if
+ //undefined这个参数的传递，是为了防止外面的undefined被修改。                             
+// Can't do this because several apps including ASP.NET trace                                 
+// the stack via arguments.caller.callee and Firefox dies if                       
 // you try to trace through "use strict" call chains. (#13335)  这些都是注释码(更详细的说明,在jQuery中官方网站可以查到)
 // Support: Firefox 18+
 //"use strict";   是在严格模式下(很多问题会报错);并不推荐
