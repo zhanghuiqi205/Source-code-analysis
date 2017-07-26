@@ -5,11 +5,11 @@
  //undefined这个参数的传递，是为了防止外面的undefined被修改。                             
 // Can't do this because several apps including ASP.NET trace                                 
 // the stack via arguments.caller.callee and Firefox dies if                                                           
-// you try to trace through "use strict" call chains. (#13335)  这些都是注释码(更详细的说明,在jQuery中官方网站可以查到)
-// Support: Firefox 18+                                       
-//"use strict";   是在严格模式下(很多问题会报错);并不推荐                                   
-......                                                
-接下来就是jQuery的变量声明：                                       
+// you try to trace through "use strict" call chains. (#13335)  这些都是注释码(更详细的说明,在jQuery中官方网站可以查到)            
+// Support: Firefox 18+                                                     
+//"use strict";   是在严格模式下(很多问题会报错);并不推荐                                                         
+......                                                                                              
+接下来就是jQuery的变量声明：                                                                                       
 var
 	// A central reference to the root jQuery(document)
 	rootjQuery,     //jQuery的根目录,提前声明
