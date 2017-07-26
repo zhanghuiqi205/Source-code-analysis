@@ -42,4 +42,4 @@ var
 
 	core_version = "2.0.3",   版本号
 
-
+ 
