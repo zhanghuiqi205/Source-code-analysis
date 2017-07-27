@@ -24,7 +24,7 @@ var
 	core_strundefined = typeof undefined,  
 
 	// Use the correct document accordingly with window argument (sandbox)
-	location = window.location,    // 存储一些全局变量，也方便后续压缩
+	location = window.location,    //网址信息   存储一些全局变量，也方便后续压缩
 	document = window.document,
 	docElem = document.documentElement,
 
@@ -41,5 +41,31 @@ var
 	core_deletedIds = [],   和缓存数据有关的,后续说明
 
 	core_version = "2.0.3",   版本号
-
- 
+	//存储一些变量
+       core_concat = core_deletedIds.concat,
+	core_push = core_deletedIds.push,
+	core_slice = core_deletedIds.slice,
+	core_indexOf = core_deletedIds.indexOf,
+	core_toString = class2type.toString,
+	core_hasOwn = class2type.hasOwnProperty,
+	core_trim = core_version.trim,   //去除前后空格
+        // Define a local copy of jQuery
+       ## 	 jQuery = function( selector, context ) {   //进入关键的地方
+	// The jQuery object is actually just the init constructor 'enhanced'
+		return new jQuery.fn.init( selector, context, rootjQuery );
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
