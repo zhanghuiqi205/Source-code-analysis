@@ -122,4 +122,55 @@ mainUtil.showTime = function(id){
     }
     return i;
   }
+  
+  /* Scroll to Top   返回顶部 */
 
+  $(".totop").hide();
+
+  $(function(){
+    $(window).scroll(function(){
+      if ($(this).scrollTop()>300)
+      {
+        $('.totop').slideDown();
+      } 
+      else
+      {
+        $('.totop').slideUp();
+      }
+    });
+
+    $('.totop a').click(function (e) {
+      e.preventDefault();
+      $('body,html').animate({scrollTop: 0}, 500);
+    });
+
+  });
+  /* Scroll to Top   返回顶部 */
+  
+  // 锚点滑动的动画函数封装
+$(document).ready(function() {
+	$("a.anchorLink").anchorAnimate()
+});
+
+jQuery.fn.anchorAnimate = function(settings) {
+
+ 	settings = jQuery.extend({
+		speed : 1100
+	}, settings);	
+	
+	return this.each(function(){
+		var caller = this
+		$(caller).click(function (event) {	
+			event.preventDefault();
+			var locationHref = window.location.href
+			var elementClick = $(caller).attr("href")
+			
+			var destination = $(elementClick).offset().top;
+			$("html:not(:animated),body:not(:animated)").animate({ scrollTop: destination}, settings.speed, function() {
+				window.location.hash = elementClick
+			});
+		  	return false;
+		})
+	})
+}
+// 锚点滑动的动画函数封装
