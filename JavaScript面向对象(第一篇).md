@@ -129,4 +129,4 @@ function Light() {
  
 var li = new Light();
 ```
-![image](https://note.youdao.com/favicon.ico)
+![image](https://github.com/zhanghuiqi205/Source-code-analysis/blob/master/image/%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
