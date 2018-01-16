@@ -108,7 +108,7 @@ function Light() {
 var li = new Light();
 
 ```
-![image](https://note.youdao.com/favicon.ico)
+![image](https://github.com/zhanghuiqi205/Source-code-analysis/blob/master/image/%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
 10. 形态决定功能:原型链作为一种结构,它带来什么功能?
 
 ```
@@ -139,7 +139,7 @@ function Light() {
 }
 var li = new Light();
 ```
-![image](https://note.youdao.com/favicon.ico)
+![image](https://github.com/zhanghuiqi205/Source-code-analysis/blob/master/image/完整原型链示意图.png)
 
 
 
