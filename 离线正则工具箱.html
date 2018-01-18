@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>离线正则工具箱</title>
+    <style media="screen">
+      div{
+        border:1px solid black;
+        background-color: rgba(71, 226, 71, 0.61);
+        width:600px;
+        text-align: center;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <script type="text/javascript">
+    //封装简易捕获DOM对象方法
+    function $name(name){
+      return document.getElementsByName(name)[0];
+    }
+    function $id(id){
+      return document.getElementById(id);
+    }
+
+    //事件编程,离不开DOM捕获
+    window.onload = function(){
+      //捕获相关DOM对象
+      var btnTest = $name('btnTest');
+      var btnExec = $name('btnExec');
+      var btnSearch = $name('btnSearch');
+      var btnMatch = $name('btnMatch');
+      var btnReplace = $name('btnReplace');
+      var btnSplit = $name('btnSplit');
+      var btnClear = $name('btnClear');
+
+      var content = $name('content');
+      var regex = $name('regex');
+      var result = $id('result');
+
+      //获取字符串和正则对象(一次)
+      var str = content.value;
+      var reg = eval(regex.value);
+
+      //绑定点击事件
+      btnTest.onclick = function(){
+        //点击事件时,获取最新的字符串和最新的表达式
+        var str = content.value;
+        var reg = eval(regex.value);
+
+        //调用方法
+        var testResult = reg.test(str);
+        //把结果显示到匹配结果框中
+        result.innerText = testResult;
+      }
+
+      btnExec.onclick = function(){
+        var str = content.value;
+        var reg = eval(regex.value);
+
+        //清空旧结果
+        result.innerText ='';
+        //调用方法
+        while(row = reg.exec(str)){
+          //把结果显示到匹配结果框中
+          result.innerText += row+'\r\n';
+        }
+      }
+
+      btnSearch.onclick = function(){
+        var str = content.value;
+        var reg = eval(regex.value);
+
+        //清空旧结果
+        result.innerText ='';
+        //调用方法
+        result.innerText = str.search(reg);
+      }
+
+      btnMatch.onclick = function(){
+        var str = content.value;
+        var reg = eval(regex.value);
+
+        //清空旧结果
+        result.innerText ='';
+        //调用方法
+        var matchResult = str.match(reg);
+        //循环遍历显示结果
+        for(var i in matchResult){
+          result.innerText += matchResult[i]+'\r\n';
+        }
+      }
+
+      btnReplace.onclick = function(){
+        var str = content.value;
+        var reg = eval(regex.value);
+
+        //接收替换文本参数
+        var replaceContent = prompt('请输入替换文本');
+
+        //清空旧结果
+        result.innerText ='';
+        //调用方法
+        var replaceResult = str.replace(reg,replaceContent);
+        //循环遍历显示结果
+        result.innerText = replaceResult;
+      }
+
+      btnSplit.onclick = function(){
+        var str = content.value;
+        var reg = eval(regex.value);
+
+        //清空旧结果
+        result.innerText ='';
+        //调用方法
+        var splitResult = str.split(reg);
+        //循环遍历显示结果
+        for(var i in splitResult){
+          result.innerText += splitResult[i]+'\r\n';
+        }
+      }
+
+      btnClear.onclick = function(){
+        content.value = '';
+        regex.value = '';
+      }
+    }
+  </script>
+  <body>
+      
+            <div id='content'>
+                    <span>验证字符串:</span><br>
+                    <textarea name="content" rows="8" cols="70"></textarea>
+                  </div>
+                  <div id='regex'>
+                    <span>正则表达式:</span>
+                    <input type="text" size='75' name="regex" value="">
+                  </div>
+                  <div id='btn'>
+                    <span>操作类型:</span>
+                    <button type="button" name="btnTest">test()</button>
+                    <button type="button" name="btnExec">exec()</button>
+                    <button type="button" name="btnSearch">search()</button>
+                    <button type="button" name="btnMatch">match()</button>
+                    <button type="button" name="btnReplace">repalce()</button>
+                    <button type="button" name="btnSplit">split()</button>
+                    <button type="button" name="btnClear">清空</button>
+                  </div>
+                  <div style="text-align:left;">
+                    <span>匹配结果:</span><br>
+                    <span id='result'></span>
+                  </div>
+  
+  </body>
+</html>
