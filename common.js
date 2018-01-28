@@ -174,3 +174,40 @@ jQuery.fn.anchorAnimate = function(settings) {
 	})
 }
 // 锚点滑动的动画函数封装
+
+//原生书写拖拽滑块的
+
+ $(function(){
+        //jQuery绑定
+        //拖拽 鼠标按下 鼠标移动 鼠标抬起
+        $("div").bind("mousedown",function(event){
+          //根据鼠标的移动 区块同步移动
+          //鼠标与div的固定边距
+          var fixedLeft = event.clientX-$(this).offset().left;
+          var fixedTop = event.clientY-$(this).offset().top;
+
+          //当鼠标按下时,给鼠标绑定一个 鼠标移动事件
+          $(this).bind('mousemove',function(event){
+            //根据鼠标的坐标,计算出元素的坐标
+            $(this).offset({
+              left:event.clientX-fixedLeft,
+              top:event.clientY-fixedTop
+            });
+          })
+
+          //将来鼠标松开时,需要卸载鼠标移动事件
+          $(this).bind("mouseup",function(){
+            $(this).unbind('mousemove');
+          })
+        })
+      })
+//原生书写拖拽滑块的
+
+
+
+
+
+
+
+
+
